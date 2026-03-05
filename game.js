@@ -1,12 +1,14 @@
 'use strict';
 
 const STORAGE_KEY = '2048-best';
+const THEME_KEY   = 'theme';
 const SIZE = 4;
 
 const boardEl   = document.getElementById('board');
 const scoreEl   = document.getElementById('score');
 const bestEl    = document.getElementById('best');
 const overlayEl = document.getElementById('game-over-overlay');
+const toggleBtn = document.getElementById('theme-toggle');
 
 let grid, score, bestScore, gameOver;
 
@@ -204,5 +206,20 @@ boardEl.addEventListener('touchend', e => {
 document.getElementById('restart').addEventListener('click', init);
 document.getElementById('restart-overlay').addEventListener('click', init);
 
+// ── Theme ─────────────────────────────────────────────────────────────────────
+function applyTheme(dark) {
+  document.body.classList.toggle('dark', dark);
+  toggleBtn.textContent = dark ? '☀️' : '🌙';
+}
+
+function toggleTheme() {
+  const isDark = document.body.classList.toggle('dark');
+  toggleBtn.textContent = isDark ? '☀️' : '🌙';
+  localStorage.setItem(THEME_KEY, isDark ? 'dark' : 'light');
+}
+
+toggleBtn.addEventListener('click', toggleTheme);
+
 // ── Boot ──────────────────────────────────────────────────────────────────────
+applyTheme(localStorage.getItem(THEME_KEY) === 'dark');
 init();

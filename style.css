@@ -25,6 +25,15 @@
   --border-radius: 6px;
 }
 
+/* ===== Dark Theme ===== */
+body.dark {
+  --bg: #1a1a2e;
+  --board-bg: #4a4038;
+  --cell-bg: rgba(60, 55, 45, 0.5);
+  --header-text: #e8dcc8;
+  --tile-text-dark: #3d3528;
+}
+
 /* ===== Reset & Base ===== */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -40,6 +49,7 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  transition: background 0.2s, color 0.2s;
 }
 
 /* ===== Layout ===== */
@@ -104,6 +114,24 @@ header h1 {
 .hint {
   font-size: clamp(0.8rem, 3vw, 1rem);
   flex: 1;
+}
+
+#theme-toggle {
+  background: var(--board-bg);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 6px 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.15s;
+  line-height: 1;
+}
+
+#theme-toggle:hover,
+#theme-toggle:focus {
+  opacity: 0.85;
+  outline: none;
 }
 
 #restart {
