@@ -180,11 +180,13 @@ document.addEventListener('keydown', e => {
 let touchStartX = 0, touchStartY = 0;
 
 boardEl.addEventListener('touchstart', e => {
+  e.preventDefault();
   touchStartX = e.changedTouches[0].clientX;
   touchStartY = e.changedTouches[0].clientY;
-}, { passive: true });
+}, { passive: false });
 
 boardEl.addEventListener('touchend', e => {
+  e.preventDefault();
   const dx = e.changedTouches[0].clientX - touchStartX;
   const dy = e.changedTouches[0].clientY - touchStartY;
   const MIN = 30;
@@ -196,7 +198,7 @@ boardEl.addEventListener('touchend', e => {
   } else {
     move(dy > 0 ? 'down' : 'up');
   }
-}, { passive: true });
+}, { passive: false });
 
 // ── Restart ───────────────────────────────────────────────────────────────────
 document.getElementById('restart').addEventListener('click', init);
