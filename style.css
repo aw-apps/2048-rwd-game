@@ -142,6 +142,7 @@ header h1 {
   gap: var(--gap);
   aspect-ratio: 1;
   width: 100%;
+  touch-action: none;
 }
 
 /* Empty cells */
