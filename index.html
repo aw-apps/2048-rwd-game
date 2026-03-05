@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2048</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>2048</h1>
+      <div class="scores">
+        <div class="score-box">
+          <span class="label">分數</span>
+          <span id="score">0</span>
+        </div>
+        <div class="score-box">
+          <span class="label">最高</span>
+          <span id="best">0</span>
+        </div>
+      </div>
+    </header>
+    <div class="controls">
+      <p class="hint">合併相同數字，達到 <strong>2048</strong>！</p>
+      <button id="restart">新遊戲</button>
+    </div>
+    <div class="board-wrapper">
+      <div id="board"></div>
+    </div>
+    <p class="instructions">桌面：方向鍵　手機：滑動螢幕</p>
+  </div>
+  <script src="game.js"></script>
+</body>
+</html>
